@@ -69,6 +69,8 @@ npm run dev
 
 The deployed app needs a MongoDB service reachable from the internet, such as MongoDB Atlas. In MongoDB Atlas, add the Vercel connection IP range or temporarily allow `0.0.0.0/0` while testing, then restrict access according to your security requirements.
 
+The Vercel serverless entry point is [`api/index.js`](./api/index.js). After pushing changes, trigger a new Vercel deployment and open the new deployment URL.
+
 ## Usage
 
 Ask Minimi a question in the chat interface. It uses the web when freshness matters and includes source links when search results are used. Start a new conversation with **New chat**.
