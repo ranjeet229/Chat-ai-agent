@@ -48,4 +48,9 @@ app.post('/api/chat', async (req, res) => {
 });
 
 app.post('/api/conversations', async (_req, res) => res.status(201).json(await store.createConversation()));
-app.listen(process.env.PORT || 3000, () => console.log(`Minimi listening on http://localhost:${process.env.PORT || 3000}`));
+
+if (!process.env.VERCEL) {
+  app.listen(process.env.PORT || 3000, () => console.log(`Minimi listening on http://localhost:${process.env.PORT || 3000}`));
+}
+
+export default app;

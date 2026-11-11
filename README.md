@@ -50,6 +50,25 @@ For development with automatic server restarts:
 npm run dev
 ```
 
+## Deploying to Vercel
+
+1. Push the project to GitHub, GitLab, or Bitbucket.
+2. In [Vercel](https://vercel.com), select **Add New Project**, import the repository, and keep the default Node.js settings.
+3. Add these environment variables in the project settings:
+
+   ```text
+   MONGODB_URI=<your MongoDB connection string>
+   MONGODB_DB=minimi
+   GROQ_API_KEY=<your Groq API key>
+   GROQ_MODEL=openai/gpt-oss-20b
+   ```
+
+   Add them for the **Production** environment, and for **Preview** too if you want preview deployments to work.
+
+4. Deploy the project. Vercel uses [`vercel.json`](./vercel.json) to route browser and API requests to the Express application.
+
+The deployed app needs a MongoDB service reachable from the internet, such as MongoDB Atlas. In MongoDB Atlas, add the Vercel connection IP range or temporarily allow `0.0.0.0/0` while testing, then restrict access according to your security requirements.
+
 ## Usage
 
 Ask Minimi a question in the chat interface. It uses the web when freshness matters and includes source links when search results are used. Start a new conversation with **New chat**.
@@ -78,4 +97,3 @@ Run the Node.js test suite with:
 ```bash
 npm test
 ```
-
